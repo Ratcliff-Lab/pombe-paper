@@ -2,6 +2,9 @@
 Scripts to generate figures for the pombe paper. 
 The raw data can be found online with the paper. 
 
+# Figure 2C&D
+Fourier Analysis (python notebook). 
+
 # Figure 2E
 Size evolution over time (R script). 
 
