@@ -17,7 +17,7 @@ mean(dt$ancestor_2, na.rm = T) # mean radius size for unicellular ancestor is: 2
 ####                           normalize                                   #####
 ################################################################################
 
-tup <- 65 # Do not keep clusters with radius > 65
+tup <- 65 # Do not keep clusters with radius > 65 (this is the tail of the size distribution, anything above might be to clusters too close together, or dirt)
 tlow <- 6 # Do not keep clusters with radius < 6 (at least 2 cells)
 
 for (line in 2:dim(dt)[2]) {
