@@ -4,39 +4,39 @@
 data = importdata("SS_assay_data.txt");
 
 %calculate cluster # for each strain and dilution
-t344_4000 = data(:,1) - data(:,2);
+t334_4000 = data(:,1) - data(:,2);
 t60_4000 = data(:,2);
 
-t344_8000 = data(:,3) - data(:,4);
+t334_8000 = data(:,3) - data(:,4);
 t60_8000 = data(:,4);
 
-t344_2000_ss = data(:,5) - data(:,6);
+t334_2000_ss = data(:,5) - data(:,6);
 t60_2000_ss = data(:,6);
 
-t344_4000_ss = data(:,7) - data(:,8);
+t334_4000_ss = data(:,7) - data(:,8);
 t60_4000_ss = data(:,8);
 
 %calculate CFU/mL for each strain and dilution
-cfu_t344_4000 = (t344_4000*4000)/.1;
+cfu_t334_4000 = (t334_4000*4000)/.1;
 cfu_t60_4000 = (t60_4000*4000)/.1;
 
-cfu_t344_8000 = (t344_8000*8000)/.1;
+cfu_t334_8000 = (t334_8000*8000)/.1;
 cfu_t60_8000 = (t60_8000*8000)/.1;
 
-cfu_t344_2000_ss = (t344_2000_ss*2000)/.1;
+cfu_t334_2000_ss = (t334_2000_ss*2000)/.1;
 cfu_t60_2000_ss = (t60_2000_ss*2000)/.1;
 
-cfu_t344_4000_ss = (t344_4000_ss*4000)/.1;
+cfu_t334_4000_ss = (t334_4000_ss*4000)/.1;
 cfu_t60_4000_ss = (t60_4000_ss*4000)/.1;
 
 %calculate frequency of t334 before and after ss for each dilution
-t334_freq_4000 = cfu_t344_4000./(cfu_t344_4000+cfu_t60_4000);
+t334_freq_4000 = cfu_t334_4000./(cfu_t334_4000+cfu_t60_4000);
 
-t334_freq_8000 = cfu_t344_8000./(cfu_t344_8000+cfu_t60_8000);
+t334_freq_8000 = cfu_t334_8000./(cfu_t334_8000+cfu_t60_8000);
 
-t334_freq_2000_ss = cfu_t344_2000_ss./(cfu_t344_2000_ss+cfu_t60_2000_ss);
+t334_freq_2000_ss = cfu_t334_2000_ss./(cfu_t334_2000_ss+cfu_t60_2000_ss);
 
-t334_freq_4000_ss = cfu_t344_4000_ss./(cfu_t344_4000_ss+cfu_t60_4000_ss);
+t334_freq_4000_ss = cfu_t334_4000_ss./(cfu_t334_4000_ss+cfu_t60_4000_ss);
 
 %take the mean of three replicates (3 per column) with std 10%
 
@@ -112,18 +112,18 @@ std(mean_t334_freq_ss./mean_t334_freq) % 0.15
 % In our case, the calculation of r can be: A1/A0 - B1/B0
 
 % Lower dilution before selection
-% cfu_t344_4000 ad cfu_t60_4000 
+% cfu_t334_4000 ad cfu_t60_4000 
 % Higher dilution before selection
-% cfu_t344_8000 and cfu_t60_8000 
+% cfu_t334_8000 and cfu_t60_8000 
 
 % Lower dilution after selection
-% cfu_t344_2000_ss and cfu_t60_2000_ss 
+% cfu_t334_2000_ss and cfu_t60_2000_ss 
 % Higher dilution after selection
-%cfu_t344_4000_ss and cfu_t60_4000_ss 
+%cfu_t334_4000_ss and cfu_t60_4000_ss 
 
 
-r_dilution1 = cfu_t344_2000_ss./cfu_t344_4000 - cfu_t60_2000_ss./cfu_t60_4000 ;
-r_dilution2 = cfu_t344_4000_ss./cfu_t344_8000 - cfu_t60_4000_ss./cfu_t60_8000 ;
+r_dilution1 = cfu_t334_2000_ss./cfu_t334_4000 - cfu_t60_2000_ss./cfu_t60_4000 ;
+r_dilution2 = cfu_t334_4000_ss./cfu_t334_8000 - cfu_t60_4000_ss./cfu_t60_8000 ;
 
 
 % Take means before calculating the selection rates
